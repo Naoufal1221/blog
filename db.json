@@ -1,0 +1,10 @@
+{
+  "articles": [
+    {
+      "title": "Learn Phyton",
+      "content": "Lorem ipsum dolor sit amet consectetur adipisicing elit. Necessitatibus sapiente et numquam quam accusamus ullam iusto ipsa pariatur nostrum impedit modi dignissimos eligendi quasi nisi voluptate, quibusdam eveniet tempora commodi.",
+      "active": "",
+      "id": 1
+    }
+  ]
+}

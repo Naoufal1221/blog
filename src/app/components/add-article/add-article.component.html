@@ -1,0 +1,61 @@
+<div class="row mt-3">
+    <div class="col-md-6 my-3">
+        <h1>Add New Article</h1>
+    </div>
+    <div class="col-md-6 text-right">
+        <a routerLink="/articles" class="btn btn-link btn-sm">
+            <i class="fa fa-backward mr-1"></i>
+            back to List
+        </a>
+    </div>
+</div>
+<div class="row">
+    <div class="col-6 mx-auto my-2">
+        <form #form="ngForm">
+            <div class="form-group"> 
+              <label for="title">Title</label>
+              <!--  (input)="log(title)"  #title="ngModel"  pattern="[a-zA-Z ]*" -->
+              <input 
+                type="text"
+                name="title"
+                id="title"
+                ngModel
+                #title="ngModel"
+                autocomplete="off"
+                (input)="log(title)" 
+                required
+                minlength="3"
+                maxlength="30"
+                class="form-control"
+                placeholder="" aria-describedby="helpId">
+                <div *ngIf="title.invalid && title.touched" class="alert alert-danger mt-1">
+                    <div *ngIf="title.errors.required" > this field is required</div>
+                    <div *ngIf="title.errors.minlength"> this field  should contain at least {{title.errors.minlength.requiredLength}} / {{title.errors.minlength.actualLength}} caracters !</div>
+                    <!-- <div *ngIf="title.errors.minlength"> this field  should contain at least 3 caracters !</div> -->
+                    <div *ngIf="title.errors.maxlength"> this field  should contain at least 10 caracters !</div>
+                    <div *ngIf="title.errors.pattern"> this field  does respect our pattern ! </div>
+                    <!-- <div *ngIf="title.errors.email"> this field  is not an email </div> -->
+                    
+                </div>
+              <small id="helpId" class="text-muted">Help text</small>
+            </div>
+            <div class="form-group">
+              <label for="content">Content</label>
+              <textarea  type="text" id="content" name="content" ngModel class="form-control" rows="5" placeholder="" aria-describedby="helpId"></textarea>
+              
+              <div class="form-check">
+                <label class="form-check-label">
+                  <input type="checkbox" class="form-check-input" name="active" id="" ngModel checked>
+                  Display value
+                </label>
+              </div>
+              <small id="helpId" class="text-muted">Help text</small>
+            </div>
+            <button class="btn btn-warning btn-block"
+                   
+                    [disabled]="form.invalid"
+              (click)="addArticle(form);"><i class="fa fa-send">   New Article</i></button>
+        </form>
+        <!--  *ngIf="form.valid" -->
+    </div>
+</div>
