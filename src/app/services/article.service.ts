@@ -22,4 +22,9 @@ export class ArticleService {
     return this.http.get<Article>(this.urlApi+'/'+id);
     // return this.http.get<Article>($this.urlApi}'/'+id);
   }
+
+  update(id: Number, data : Article)
+  {
+    return this.http.put(this.urlApi+'/'+id,data);
+  }
 }
